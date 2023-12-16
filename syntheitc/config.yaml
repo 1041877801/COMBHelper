@@ -1,0 +1,32 @@
+dataset: BA1k
+dataset_path: ./data/BA_Train
+student:
+  T: 1
+  alpha: 0.2
+  beta: 0.8
+  boosting: 1
+  ckpt_path:
+    MIS: ./model/BA1k_MIS_Student.pt
+    MVC: ./model/BA1k_MVC_Student.pt
+  best_ckpt_path:
+    MIS: ./best_model/Best_MIS_Student.pt
+    MVC: ./best_model/Best_MVC_Student.pt
+  epochs: 1000
+  hidden_channels: 32
+  in_channels: 1024
+  lr: 0.0001
+  out_channels: 2
+  weight_decay: 0.0005
+teacher:
+  ckpt_path:
+    MIS: ./model/BA1k_MIS_Teacher.pt
+    MVC: ./model/BA1k_MVC_Teacher.pt
+  best_ckpt_path:
+    MIS: ./best_model/Best_MIS_Teacher.pt
+    MVC: ./best_model/Best_MVC_Teacher.pt
+  epochs: 500
+  hidden_channels: 128
+  in_channels: 1024
+  lr: 0.001
+  out_channels: 2
+  weight_decay: 0.0005
